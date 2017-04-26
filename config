@@ -171,7 +171,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         font pango:DejaVu Sans Mono, Awesome 12
-        status_command i3blocks
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
         position top
         colors {
           background #1b1d1f
