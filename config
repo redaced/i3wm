@@ -196,3 +196,4 @@ mode "$mode_system" {
       bindsym Escape mode "default"
 }
 bindsym $mod+x mode "$mode_system"
+for_window [class="^Spotify$"] floating enable
