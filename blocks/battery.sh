@@ -1,6 +1,7 @@
 #!/bin/bash
 
 battery="$(upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -Po '(?<=percentage:) .+')"
+state="$(upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -Po '(?<=state:) .*')"
 percent=${battery::-1}
 percent=`expr $percent + 1`
 status=''
@@ -19,5 +20,15 @@ elif [ $percent -lt 75 ]
 else
     status=""
 fi
-status="$status $battery"
+
+if [ $state = "charging" ]
+  then
+    stat=""
+elif [ $state = "discharging" ]
+  then
+    stat=""
+else
+  stat=""
+fi
+status="$stat $status $battery"
 echo $status
